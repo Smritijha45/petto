@@ -1,47 +1,66 @@
-import React from 'react';
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { useState } from "react";
+import { FaChevronDown, FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 
-const Footer = () => {
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <footer className="w-full bg-green-900 text-white py-8 text-center pb-15">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold">Petto - Adopt. Rescue. Love.</h2>
-        <p className="text-sm mt-2">Connecting loving homes with pets in need. Every adoption saves a life.</p>
+    <nav className="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16">
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 text-sm">
-          <div>
-            <h3 className="font-semibold text-lg">Quick Links</h3>
-            <ul className="mt-2 space-y-1">
-              <li><a href="#" className="hover:underline">Home</a></li>
-              <li><a href="#" className="hover:underline">Adopt a Pet</a></li>
-              <li><a href="#" className="hover:underline">Rescue Stories</a></li>
-              <li><a href="#" className="hover:underline">Volunteer</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-lg">Resources</h3>
-            <ul className="mt-2 space-y-1">
-              <li><a href="#" className="hover:underline">Pet Care Tips</a></li>
-              <li><a href="#" className="hover:underline">FAQs</a></li>
-              <li><a href="#" className="hover:underline">Support Us</a></li>
-              <li><a href="#" className="hover:underline">Contact Us</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-lg">Follow Us</h3>
-            <div className="flex justify-center gap-4 mt-2">
-              <a href="#" className="hover:text-gray-300"><FaFacebookF size={20} /></a>
-              <a href="#" className="hover:text-gray-300"><FaInstagram size={20} /></a>
-              <a href="#" className="hover:text-gray-300"><FaTwitter size={20} /></a>
-              <a href="#" className="hover:text-gray-300"><FaYoutube size={20} /></a>
-            </div>
-          </div>
-        </div>
-        
-        <p className="text-xs mt-6">© 2025 Petto. All rights reserved. | Privacy Policy | Terms of Service</p>
-      </div>
-    </footer>
-  );
-};
+        {/* Logo */}
+        <div className="text-2xl font-bold text-green-900">Petto</div>
 
-export default Footer;
+        {/* Mobile Menu Icon - Only Visible on Small Screens */}
+        <button 
+          className="block md:hidden text-green-900 text-2xl focus:outline-none" 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Navigation Links for Medium & Large Screens */}
+        <div className="hidden md:flex space-x-8">
+          {/* Existing Links (Unchanged) */}
+          <a href="#" className="text-gray-700 hover:text-green-900">Home</a>
+          <a href="#" className="text-gray-700 hover:text-green-900">About Us</a>
+          <div className="relative">
+            <button className="text-gray-700 hover:text-green-900 flex items-center space-x-1">
+              <span>Adoption</span>
+              <FaChevronDown className="w-4 h-4" />
+            </button>
+          </div>
+          <a href="#" className="text-gray-700 hover:text-green-900">Blog</a>
+          <a href="#" className="text-gray-700 hover:text-green-900">Donation</a>
+          <a href="#" className="text-gray-700 hover:text-green-900">Contact Us</a>
+        </div>
+
+        {/* Right Section (Login + Profile Icon) */}
+        <div className="hidden md:flex items-center space-x-6">
+          <button className="bg-green-900 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+            Login
+          </button>
+          <FaUserCircle className="w-8 h-8 text-green-900 cursor-pointer" />
+        </div>
+      </div>
+
+      {/* Mobile Menu - Only Visible on Small Screens */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white shadow-md w-full absolute top-16 left-0 py-4 px-6 space-y-4">
+          {/* Existing Links - Now Displayed in Mobile Menu */}
+          <a href="#" className="block text-gray-700 hover:text-green-900">Home</a>
+          <a href="#" className="block text-gray-700 hover:text-green-900">About Us</a>
+          <a href="#" className="block text-gray-700 hover:text-green-900">Adoption</a>
+          <a href="#" className="block text-gray-700 hover:text-green-900">Blog</a>
+          <a href="#" className="block text-gray-700 hover:text-green-900">Donation</a>
+          <a href="#" className="block text-gray-700 hover:text-green-900">Contact Us</a>
+
+          {/* Login Button in Mobile Menu */}
+          <button className="w-full bg-green-900 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+            Login
+          </button>
+        </div>
+      )}
+    </nav>
+  );
+}

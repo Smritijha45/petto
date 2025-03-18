@@ -1,3 +1,4 @@
+import React from 'react';
 import dog from "../assets/dog.jpg";
 import cat from "../assets/cat.jpg";
 import hamster from "../assets/hamster.jpg";

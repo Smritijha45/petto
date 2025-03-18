@@ -1,4 +1,5 @@
-import dog3 from '../assets/dog3.jpg'; // Adjust the path as needed
+import React from 'react';
+import dog3 from '../assets/dog3.jpg'; 
 
 const PostSection = () => {
   return (

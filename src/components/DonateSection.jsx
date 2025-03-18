@@ -1,3 +1,4 @@
+import React from 'react';
 import dog2 from "../assets/dog2.jpg"; 
 export default function DonateSection() {
   return (
