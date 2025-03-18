@@ -27,18 +27,18 @@ export default function Navbar() {
             </button>
             {dropdownOpen && (
               <div className="absolute bg-white shadow-lg rounded-md mt-2 py-2 w-40">
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Dogs</Link>
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Cats</Link>
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Rabbits</Link>
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Hamsters</Link>
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Others</Link>
+               <a href="#" className="block px-4 py-2 hover:bg-gray-100">Dogs</a>
+               <a href="#" className="block px-4 py-2 hover:bg-gray-100">Cats</a>
+               <a href="#" className="block px-4 py-2 hover:bg-gray-100">Rabbits/</a>
+               <a href="#" className="block px-4 py-2 hover:bg-gray-100">Hamsters</a>
+               <a href="#" className="block px-4 py-2 hover:bg-gray-100">Others</a>
               </div>
             )}
           </div>
 
-          <Link to="#" className="text-gray-700 hover:text-green-900">Blog</Link>
-          <Link to="#" className="text-gray-700 hover:text-green-900">Donation</Link>
-          <Link to="#" className="text-gray-700 hover:text-green-900">Contact Us</Link>
+          <a href="#" className="text-gray-700 hover:text-green-900">Blog</a>
+          <a href="#" className="text-gray-700 hover:text-green-900">Donation</a>
+          <a href="#" className="text-gray-700 hover:text-green-900">Contact Us</a>
         </div>
 
         {/* Right Section (Login + Profile Icon) */}
